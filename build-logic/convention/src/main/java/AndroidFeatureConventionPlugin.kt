@@ -11,6 +11,7 @@ class AndroidFeatureConventionPlugin : Plugin<Project> {
                 apply("activedg.android.library")
                 apply("activedg.android.library.compose")
                 apply("activedg.android.hilt")
+                apply("kotlin-parcelize")
             }
 
             dependencies {
@@ -24,6 +25,11 @@ class AndroidFeatureConventionPlugin : Plugin<Project> {
                 add("implementation", libs.compose.hilt.navigation)
 
                 add("implementation", libs.coroutines.android)
+
+                add("implementation", libs.timber)
+                add("implementation", libs.orbit.core)
+                add("implementation", libs.orbit.viewmodel)
+                add("implementation", libs.orbit.compose)
             }
         }
     }

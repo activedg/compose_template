@@ -1,44 +1,26 @@
-@Suppress("DSL_SCOPE_VIOLATION") // TODO: Remove once KTIJ-19369 is fixed
+import com.example.template.libs
+
 plugins {
-    alias(libs.plugins.android.library)
-    alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.activedg.android.library)
+    alias(libs.plugins.activedg.android.library.compose)
 }
 
 android {
     namespace = "com.example.template.core.ui"
-    compileSdk = 34
-
-    defaultConfig {
-        minSdk = 26
-
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-        consumerProguardFiles("consumer-rules.pro")
-    }
-
-    buildTypes {
-        release {
-            isMinifyEnabled = false
-            proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
-            )
-        }
-    }
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
-    }
-    kotlinOptions {
-        jvmTarget = "1.8"
-    }
 }
 
 dependencies {
+    api(libs.compose.ui)
+    api(libs.compose.material)
+    api(libs.compose.foundation)
+    api(libs.compose.ui.tooling)
+    api(libs.compose.ui.tooling.preview)
+    api(libs.compose.navigation)
+    api(libs.compose.lifecycle)
+    api(libs.compose.hilt.navigation)
+    api(libs.compose.constraintlayout)
 
-    implementation(libs.core.ktx)
-    implementation(libs.appcompat)
-    implementation(libs.material)
-    testImplementation(libs.junit)
-    androidTestImplementation(libs.androidx.test.ext.junit)
-    androidTestImplementation(libs.espresso.core)
+    api(libs.orbit.core)
+    api(libs.orbit.viewmodel)
+    api(libs.orbit.compose)
 }

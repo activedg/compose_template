@@ -1,7 +1,8 @@
 plugins {
     alias(libs.plugins.activedg.android.feature)
+    alias(libs.plugins.activedg.android.library.compose)
 }
 
 android {
-    namespace = "${libs.versions.namespace}.feature.main"
+    namespace = "com.example.template.feature.main"
 }
