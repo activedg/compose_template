@@ -1,12 +1,13 @@
 [versions]
 agp = "8.2.2"
-android-tools = "31.3.0"
+android-tools = "31.3.1"
 android-desugar = "2.0.4"
-kotlin = "1.9.22"
-ksp = "1.9.22-1.0.18"
+kotlin = "1.9.23"
+ksp = "1.9.23-1.0.19"
 core-ktx = "1.12.0"
 firebase-bom = "32.7.1"
 firebase-crashlytics = "2.9.9"
+kotlinx-serialization-json = "1.6.3"
 
 
 junit = "4.13.2"
@@ -16,8 +17,8 @@ androidx-test-ext-junit = "1.1.5"
 activity-compose = "1.8.2"
 navigation = "2.7.7"
 lifecycle = "2.7.0"
-compose-bom = "2024.02.02"
-compose-compiler = "1.5.10"
+compose-bom = "2024.03.00"
+compose-compiler = "1.5.11"
 compose-hilt-navigation = "1.2.0"
 constraintlayout = "1.0.1"
 appcompat = "1.6.1"
@@ -28,15 +29,17 @@ hilt = "2.51"
 room = "2.6.1"
 dataStore = "1.0.0"
 ktor = "2.3.7"
-org-jetbrains-kotlin-jvm = "1.9.22"
+org-jetbrains-kotlin-jvm = "1.9.23"
 
 timber = "5.0.1"
 orbit = "6.1.1"
+roomGradlePlugin = "2.6.1"
 
 [libraries]
 android-desugar = { group = "com.android.tools", name = "desugar_jdk_libs", version.ref = "android-desugar" }
 core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "core-ktx" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
+kotlinx-serialization-json = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-json", version.ref = "kotlinx-serialization-json" }
 androidx-test-ext-junit = { group = "androidx.test.ext", name = "junit", version.ref = "androidx-test-ext-junit" }
 espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espresso-core" }
 lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycle" }
@@ -69,6 +72,23 @@ orbit-core = { group = "org.orbit-mvi", name = "orbit-core", version.ref = "orbi
 orbit-viewmodel = { group = "org.orbit-mvi", name = "orbit-viewmodel", version.ref = "orbit" }
 orbit-compose = { group = "org.orbit-mvi", name = "orbit-compose", version.ref = "orbit" }
 
+datastore-preferences = { group = "androidx.datastore", name = "datastore-preferences", version.ref = "dataStore" }
+
+room-ktx = { group = "androidx.room", name = "room-ktx", version.ref = "room" }
+room-runtime = { group = "androidx.room", name = "room-runtime", version.ref = "room" }
+room-compiler = { group = "androidx.room", name = "room-compiler", version.ref = "room" }
+
+ktor-core = { group = "io.ktor", name = "ktor-client-core", version.ref = "ktor" }
+ktor-android = { group = "io.ktor", name = "ktor-client-android", version.ref = "ktor" }
+ktor-content-negotiation = { group = "io.ktor", name = "ktor-client-content-negotiation", version.ref = "ktor" }
+ktor-serialization = { group = "io.ktor", name = "ktor-client-serialization", version.ref = "ktor" }
+ktor-serialization-json = { group = "io.ktor", name = "ktor-serialization-kotlinx-json", version.ref = "ktor" }
+ktor-logging = { group = "io.ktor", name = "ktor-client-logging-jvm", version.ref = "ktor" }
+
+ktor-cio = { group = "io.ktor", name = "ktor-client-cio", version.ref = "ktor" }
+ktor-okhttp = { group = "io.ktor", name = "ktor-client-okhttp", version.ref = "ktor" }
+ktor-serialization-jvm = { group = "io.ktor", name = "ktor-client-serialization-jvm", version.ref = "ktor" }
+
 
 # Dependencies of the included build-logic
 android-gradle-plugin = { group = "com.android.tools.build", name = "gradle", version.ref = "agp" }
@@ -77,6 +97,7 @@ androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "a
 firebase-crashlytics-gradle-plugin = { group = "com.google.firebase", name = "firebase-crashlytics-gradle", version.ref = "firebase-crashlytics" }
 kotlin-gradle-plugin = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-plugin", version.ref = "kotlin" }
 ksp-gradle-plugin = { group = "com.google.devtools.ksp", name = "com.google.devtools.ksp.gradle.plugin", version.ref = "ksp" }
+androidx-room-gradle-plugin = { group = "androidx.room", name = "room-gradle-plugin", version.ref = "roomGradlePlugin" }
 # room-gradle-plugin = { group = "androidx.room", name = "room-gradle-plugin", version.ref = "room" }
 
 [plugins]
@@ -94,9 +115,9 @@ activedg-android-application-compose = { id = "activedg.android.application.comp
 #activedg-android-application-firebase = { id = "activedg.android.application.firebase", version = "unspecified" }
 activedg-android-library = { id = "activedg.android.library", version = "unspecified" }
 activedg-android-library-compose = { id = "activedg.android.library.compose", version = "unspecified" }
-#activedg-android-kotlin-serialization = { id = "activedg.android.kotlin.serialization", version = "unspecified" }
+activedg-android-kotlin-serialization = { id = "activedg.android.kotlin.serialization", version = "unspecified" }
 activedg-android-feature = { id = "activedg.android.feature", version = "unspecified" }
 activedg-android-hilt = { id = "activedg.android.hilt", version = "unspecified" }
-#activedg-android-local = { id = "activedg.android.local", version = "unspecified" }
-#activedg-android-remote = { id = "activedg.android.remote", version = "unspecified" }
+activedg-android-local = { id = "activedg.android.local", version = "unspecified" }
+activedg-android-remote = { id = "activedg.android.remote", version = "unspecified" }
 

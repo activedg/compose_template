@@ -19,6 +19,7 @@ tasks.withType<KotlinCompile>().configureEach {
 
 dependencies {
     implementation(files(libs.javaClass.superclass.protectionDomain.codeSource.location))
+    implementation(libs.androidx.room.gradle.plugin)
 
     compileOnly(libs.android.gradle.plugin)
     compileOnly(libs.android.tools.common)
@@ -57,11 +58,6 @@ gradlePlugin {
             implementationClass = "AndroidLibraryComposeConventionPlugin"
         }
 
-//        register("androidKotlinSerialization"){
-//            id = "activedg.android.kotlin.serialization"
-//            implementationClass = "AndroidKotlinSerializationConventionPlugin"
-//        }
-
 //        register("androidApplicationFirebase"){
 //            id = "activedg.android.application.firebase"
 //            implementationClass = "AndroidApplicationFirebaseConventionPlugin"
@@ -77,14 +73,14 @@ gradlePlugin {
             implementationClass = "AndroidHiltConventionPlugin"
         }
 
-//        register("androidLocal"){
-//            id = "activedg.android.local"
-//            implementationClass = "AndroidLocalConventionPlugin"
-//        }
-//
-//        register("androidRemote"){
-//            id = "activedg.android.remote"
-//            implementationClass = "AndroidRemoteConventionPlugin"
-//        }
+        register("androidLocal"){
+            id = "activedg.android.local"
+            implementationClass = "AndroidLocalConventionPlugin"
+        }
+
+        register("androidRemote"){
+            id = "activedg.android.remote"
+            implementationClass = "AndroidRemoteConventionPlugin"
+        }
     }
 }
